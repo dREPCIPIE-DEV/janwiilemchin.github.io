@@ -64,3 +64,22 @@ if (photoSlides.length) {
     if (event.key === "ArrowRight") showPhoto(currentPhoto + 1);
   });
 }
+
+
+const coverSlides = document.querySelectorAll(".cover-slide");
+const coverPrev = document.querySelector(".cover-prev");
+const coverNext = document.querySelector(".cover-next");
+let currentCover = 0;
+
+function showCover(index) {
+  if (!coverSlides.length) return;
+  currentCover = (index + coverSlides.length) % coverSlides.length;
+  coverSlides.forEach((slide, i) => {
+    slide.classList.toggle("is-active", i === currentCover);
+  });
+}
+
+if (coverSlides.length) {
+  coverPrev.addEventListener("click", () => showCover(currentCover - 1));
+  coverNext.addEventListener("click", () => showCover(currentCover + 1));
+}
