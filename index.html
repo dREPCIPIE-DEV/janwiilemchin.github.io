@@ -1,121 +1,1024 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jan-Willem Chin — music, releases and Spotify.">
+
+  <meta name="description" content="Jan-Willem Chin — independent musician and producer. Lofi beats, piano melodies and nostalgic soundscapes.">
+
   <title>Jan-Willem Chin — Music</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f3f0e8;
+      color: #1d1d1b;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      z-index: 100;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    }
+
+    /* NAVIGATION */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      height: 76px;
+      padding: 0 6vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: rgba(243, 240, 232, 0.92);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid #d8d3c8;
+    }
+
+    .wordmark {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .wordmark span {
+      color: #8a857b;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      font-size: 0.78rem;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
+    }
+
+    .nav-spotify {
+      padding: 9px 15px;
+      border: 1px solid #1d1d1b;
+      border-radius: 100px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: calc(100vh - 76px);
+
+      padding: 8vw 6vw;
+
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      align-items: center;
+      gap: 8vw;
+
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+
+      color: #706c64;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #1d1d1b;
+      display: inline-block;
+    }
+
+    h1 {
+      margin: 18px 0 28px;
+
+      font-size: clamp(4.5rem, 10vw, 9rem);
+      line-height: 0.82;
+      letter-spacing: -0.075em;
+      font-weight: 600;
+    }
+
+    h1 em,
+    h2 em {
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      color: #57534c;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 14px 21px;
+
+      border-radius: 100px;
+
+      font-size: 0.78rem;
+      font-weight: 600;
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: #1d1d1b;
+      color: #f3f0e8;
+    }
+
+    .spotify-mark {
+      margin-right: 9px;
+      font-size: 0.7rem;
+    }
+
+    .text-link {
+      font-size: 0.78rem;
+      border-bottom: 1px solid #1d1d1b;
+      padding-bottom: 3px;
+    }
+
+    /* ORBITAL */
+
+    .orbital {
+      position: relative;
+
+      width: min(38vw, 500px);
+      height: min(38vw, 500px);
+
+      margin-left: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orbit {
+      position: absolute;
+      border: 1px solid #bbb5aa;
+      border-radius: 50%;
+    }
+
+    .orbit-1 {
+      width: 100%;
+      height: 42%;
+      transform: rotate(-25deg);
+      animation: float1 8s ease-in-out infinite;
+    }
+
+    .orbit-2 {
+      width: 82%;
+      height: 58%;
+      transform: rotate(35deg);
+      animation: float2 10s ease-in-out infinite;
+    }
+
+    .orbit-3 {
+      width: 60%;
+      height: 95%;
+      transform: rotate(65deg);
+      animation: float3 12s ease-in-out infinite;
+    }
+
+    .core {
+      width: 28px;
+      height: 28px;
+
+      border-radius: 50%;
+      background: #1d1d1b;
+
+      box-shadow: 0 0 0 14px rgba(29, 29, 27, 0.05);
+    }
+
+    .pulse {
+      position: absolute;
+
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+      background: #777268;
+
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes float1 {
+      50% {
+        transform: rotate(-20deg) scale(1.03);
+      }
+    }
+
+    @keyframes float2 {
+      50% {
+        transform: rotate(40deg) scale(0.97);
+      }
+    }
+
+    @keyframes float3 {
+      50% {
+        transform: rotate(60deg) scale(1.04);
+      }
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.8);
+        opacity: 0.35;
+      }
+    }
+
+    /* GENERAL SECTIONS */
+
+    .section {
+      padding: 10vw 6vw;
+      border-top: 1px solid #d8d3c8;
+    }
+
+    .section-heading {
+      margin-bottom: 55px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-heading > span {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #817c72;
+    }
+
+    /* LATEST RELEASE */
+
+    .release-card {
+      display: grid;
+      grid-template-columns: 0.8fr 1fr;
+      gap: 8vw;
+      align-items: center;
+    }
+
+    .cover {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .cover-inner {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #ddd8ce;
+    }
+
+    .cover-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .release-type {
+      margin-bottom: 15px;
+
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+
+      color: #817c72;
+    }
+
+    .release-info h2 {
+      margin-bottom: 20px;
+
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      font-weight: 500;
+    }
+
+    .release-info > p:not(.release-type) {
+      max-width: 500px;
+      margin-bottom: 28px;
+
+      color: #625e57;
+      font-size: 1rem;
+    }
+
+    .button-dark {
+      background: #1d1d1b;
+      color: #f3f0e8;
+    }
+
+    /* TRACKS */
+
+    .track-list {
+      border-top: 1px solid #d8d3c8;
+    }
+
+    .track {
+      min-height: 75px;
+
+      display: grid;
+      grid-template-columns: 70px 1fr 30px;
+      align-items: center;
+
+      border-bottom: 1px solid #d8d3c8;
+
+      transition:
+        padding 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .track:hover {
+      padding-left: 12px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .track-no {
+      font-size: 0.68rem;
+      color: #817c72;
+    }
+
+    .track-name {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .track-arrow {
+      text-align: right;
+      color: #817c72;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.6fr 1.4fr;
+      gap: 8vw;
+    }
+
+    .about-copy h2 {
+      margin-bottom: 35px;
+
+      font-size: clamp(3rem, 6vw, 6.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 500;
+    }
+
+    .about-copy p {
+      max-width: 850px;
+
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      line-height: 1.7;
+
+      color: #565149;
+    }
+
+    /* PHOTOS */
+
+    .photos {
+      overflow: hidden;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .photo-item {
+      overflow: hidden;
+      background: #ddd8ce;
+      aspect-ratio: 1 / 1;
+    }
+
+    .photo-large {
+      grid-column: span 2;
+      aspect-ratio: 16 / 8;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+
+      transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .photo-caption {
+      padding: 12px 0 0;
+
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+
+      color: #817c72;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding: 12vw 6vw;
+      text-align: center;
+
+      border-top: 1px solid #d8d3c8;
+    }
+
+    .cta .eyebrow {
+      justify-content: center;
+    }
+
+    .cta h2 {
+      max-width: 900px;
+      margin: 22px auto 38px;
+
+      font-size: clamp(3.5rem, 8vw, 8rem);
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+      font-weight: 500;
+    }
+
+    .button-light {
+      background: #1d1d1b;
+      color: #f3f0e8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 28px 6vw;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      border-top: 1px solid #d8d3c8;
+
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+
+      color: #817c72;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .nav {
+        padding: 0 5vw;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 0.7rem;
+      }
+
+      .nav-spotify {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 18vw 6vw 20vw;
+        gap: 70px;
+      }
+
+      h1 {
+        font-size: clamp(4rem, 20vw, 7rem);
+      }
+
+      .orbital {
+        width: 80vw;
+        height: 80vw;
+        margin: auto;
+      }
+
+      .release-card {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .cover {
+        max-width: 100%;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .section {
+        padding: 18vw 6vw;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-large {
+        grid-column: span 1;
+        aspect-ratio: 1 / 1;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      nav a:nth-child(2) {
+        display: none;
+      }
+
+      .track {
+        grid-template-columns: 45px 1fr 20px;
+      }
+
+      .section-heading {
+        margin-bottom: 35px;
+      }
+
+      .hero-actions {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
+
   <div class="grain"></div>
 
+  <!-- NAVIGATION -->
+
   <header class="nav">
-    <a class="wordmark" href="#top">Jan-Willem Chin<span>.</span></a>
-    <nav>
-      <a href="#music">Music</a>
-      <a href="#about">About</a>
-      <a class="nav-spotify" href="https://open.spotify.com/artist/0ibmG0fxbpA8wZe8wHjh8V" target="_blank" rel="noopener">Spotify ↗</a>
-    </nav>
+
+```
+<a class="wordmark" href="#top">
+  Jan-Willem Chin<span>.</span>
+</a>
+
+<nav>
+  <a href="#music">Music</a>
+  <a href="#about">About</a>
+  <a href="#photos">Photos</a>
+
+  <a
+    class="nav-spotify"
+    href="https://open.spotify.com/artist/0ibmG0fxbpA8wZe8wHjh8V"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Spotify ↗
+  </a>
+</nav>
+```
+
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="dot"></span> Independent artist</p>
-        <h1>Jan-Willem<br><em>Chin</em></h1>
-        <p class="intro">Quiet sounds. Late-night ideas.<br>Music made to stay with you.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://open.spotify.com/artist/0ibmG0fxbpA8wZe8wHjh8V" target="_blank" rel="noopener">
-            <span class="spotify-mark">●</span> Listen on Spotify
-          </a>
-          <a class="text-link" href="#music">Explore music ↓</a>
-        </div>
+
+```
+<!-- HOME -->
+
+<section class="hero">
+
+  <div class="hero-copy">
+
+    <p class="eyebrow">
+      <span class="dot"></span>
+      Independent artist
+    </p>
+
+    <h1>
+      Jan-Willem<br>
+      <em>Chin</em>
+    </h1>
+
+    <p class="intro">
+      Quiet sounds. Late-night ideas.<br>
+      Music made to stay with you.
+    </p>
+
+    <div class="hero-actions">
+
+      <a
+        class="button button-primary"
+        href="https://open.spotify.com/artist/0ibmG0fxbpA8wZe8wHjh8V"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="spotify-mark">●</span>
+        Listen on Spotify
+      </a>
+
+      <a class="text-link" href="#music">
+        Explore music ↓
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="orbital" aria-hidden="true">
+
+    <div class="orbit orbit-1"></div>
+    <div class="orbit orbit-2"></div>
+    <div class="orbit orbit-3"></div>
+
+    <div class="core"></div>
+    <div class="pulse"></div>
+
+  </div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<section class="section latest" id="music">
+
+  <div class="section-heading">
+
+    <p class="eyebrow">
+      Latest release
+    </p>
+
+    <span>2026</span>
+
+  </div>
+
+
+  <div class="release-card">
+
+    <div class="cover">
+
+      <div class="cover-inner">
+
+        <img
+          src="pr1.jpg"
+          alt="A beginning — Jan-Willem Chin"
+        >
+
       </div>
 
-      <div class="orbital" aria-hidden="true">
-        <div class="orbit orbit-1"></div>
-        <div class="orbit orbit-2"></div>
-        <div class="orbit orbit-3"></div>
-        <div class="core"></div>
-        <div class="pulse"></div>
-      </div>
-    </section>
+    </div>
 
-    <section class="section latest" id="music">
-      <div class="section-heading">
-        <p class="eyebrow">Latest release</p>
-        <span>2026</span>
-      </div>
 
-      <div class="release-card">
-        <div class="cover">
-          <div class="cover-inner">
-            <img src="pr1.jpg">
-          </div>
-        </div>
-        <div class="release-info">
-          <p class="release-type">EP · 4 tracks · Sep 16, 2026</p>
-          <h2>A beginning</h2>
-          <p>A small collection of new pieces: <i>A beginning</i>, <i>Again</i>, <i>A Slow One</i> and <i>Fireplace</i>.</p>
-          <a class="button button-dark" href="https://open.spotify.com/album/7HOqmNW9npU0h5svuoUekE" target="_blank" rel="noopener">Play on Spotify ↗</a>
-        </div>
-      </div>
-    </section>
+    <div class="release-info">
 
-    <section class="section tracks">
-      <div class="section-heading">
-        <p class="eyebrow">Selected tracks</p>
-        <span>Listen</span>
-      </div>
+      <p class="release-type">
+        EP · 4 tracks · Sep 16, 2026
+      </p>
 
-      <div class="track-list">
-        <a class="track" href="https://open.spotify.com/track/1XnMR3c9HmtVsTogJVOPiZ?si=9f47b9cd2e114484" target="_blank" rel="noopener">
-          <span class="track-no">01</span><span class="track-name">Letters</span><span class="track-arrow">↗</span>
-        </a>
-        <a class="track" href="https://open.spotify.com/track/6JGePXw7q47DYCRQQWJTOe?si=63df05289d7b4e62" target="_blank" rel="noopener">
-          <span class="track-no">02</span><span class="track-name">Late night walk</span><span class="track-arrow">↗</span>
-        </a>
-        <a class="track" href="https://open.spotify.com/track/3hw0dSwuZnbUxKr7R7GwPU?si=4986a3aa1811429b" target="_blank" rel="noopener">
-          <span class="track-no">03</span><span class="track-name">Time for bed</span><span class="track-arrow">↗</span>
-        </a>
-        <a class="track" href="https://open.spotify.com/track/6rCtnWfTTVfu1P1p1pvvoV?si=42dde18710e640ba" target="_blank" rel="noopener">
-          <span class="track-no">04</span><span class="track-name">Walking</span><span class="track-arrow">↗</span>
-        </a>
-        <a class="track" href="https://open.spotify.com/track/2v3M6aXT3kVJWW4JrKIhUZ?si=ff405b3008b44618" target="_blank" rel="noopener">
-          <span class="track-no">05</span><span class="track-name">Light shines</span><span class="track-arrow">↗</span>
+      <h2>
+        A beginning
+      </h2>
 
- 	<a class="track" href="https://open.spotify.com/track/3yYFwffXgiDlQtjHU9y0DD?si=1c8fdce166554967 target="_blank" rel="noopener">
-          <span class="track-no">05</span><span class="track-name">A Beginning</span><span class="track-arrow">↗</span>
-        </a>
-      </div>
-    </section>
+      <p>
+        A small collection of new pieces:
+        <i>A beginning</i>,
+        <i>Again</i>,
+        <i>A Slow One</i>
+        and
+        <i>Fireplace</i>.
+      </p>
 
-    <section class="section about" id="about">
-      <div>
-        <p class="eyebrow">About</p>
-      </div>
-      <div class="about-copy">
-        <h2>Music for the spaces<br><em>between things.</em></h2>
-        <p>Jan-Willem Chin is an independent musician and producer crafting immersive soundscapes designed to help you unwind. Focusing on lofi beats, soothing piano melodies, and nostalgic textures, his music provides the perfect soundtrack for studying, working, or simply relaxing after a long day.​He consistently drops evocative singles that resonate with the global lofi community, including tracks like Movie Night and his latest release, Move like the water. Immerse yourself in his sonic world and let the stress of everyday life fade away.</p>
-      </div>
-    </section>
+      <a
+        class="button button-dark"
+        href="https://open.spotify.com/album/7HOqmNW9npU0h5svuoUekE"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Play on Spotify ↗
+      </a>
 
-    <section class="cta">
-      <p class="eyebrow">Stay in the loop</p>
-      <h2>Hear what's next.</h2>
-      <a class="button button-light" href="https://open.spotify.com/artist/0ibmG0fxbpA8wZe8wHjh8V" target="_blank" rel="noopener">Follow on Spotify ↗</a>
-    </section>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TRACKS -->
+
+<section class="section tracks">
+
+  <div class="section-heading">
+
+    <p class="eyebrow">
+      Top tracks
+    </p>
+
+    <span>Listen</span>
+
+  </div>
+
+
+  <div class="track-list">
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/1XnMR3c9HmtVsTogJVOPiZ?si=9f47b9cd2e114484"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">01</span>
+      <span class="track-name">Letters</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/6JGePXw7q47DYCRQQWJTOe?si=63df05289d7b4e62"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">02</span>
+      <span class="track-name">Late night walk</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/3hw0dSwuZnbUxKr7R7GwPU?si=4986a3aa1811429b"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">03</span>
+      <span class="track-name">Time for bed</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/6rCtnWfTTVfu1P1p1pvvoV?si=42dde18710e640ba"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">04</span>
+      <span class="track-name">Walking</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/2v3M6aXT3kVJWW4JrKIhUZ?si=ff405b3008b44618"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">05</span>
+      <span class="track-name">Light shines</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/3yYFwffXgiDlQtjHU9y0DD?si=1c8fdce166554967"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">06</span>
+      <span class="track-name">A Beginning</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section about" id="about">
+
+  <div>
+
+    <p class="eyebrow">
+      About
+    </p>
+
+  </div>
+
+
+  <div class="about-copy">
+
+    <h2>
+      Music for the spaces<br>
+      <em>between things.</em>
+    </h2>
+
+    <p>
+      Jan-Willem Chin is an independent musician and producer
+      crafting immersive soundscapes designed to help you unwind.
+      Focusing on lofi beats, soothing piano melodies, and nostalgic
+      textures, his music provides the perfect soundtrack for studying,
+      working, or simply relaxing after a long day.
+    </p>
+
+    <br>
+
+    <p>
+      He consistently drops evocative singles that resonate with the
+      global lofi community, including tracks like
+      <i>Movie Night</i> and his latest release,
+      <i>Move like the water</i>.
+      Immerse yourself in his sonic world and let the stress of
+      everyday life fade away.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PHOTOS -->
+
+<section class="section photos" id="photos">
+
+  <div class="section-heading">
+
+    <p class="eyebrow">
+      Photos
+    </p>
+
+    <span>Visuals</span>
+
+  </div>
+
+
+  <div class="photo-grid">
+
+    <div class="photo-item photo-large">
+
+      <img
+        src="jan-willem.jpg"
+        alt="Jan-Willem Chin in the mountains"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <p class="eyebrow">
+    Stay in the loop
+  </p>
+
+  <h2>
+    Hear what's next.
+  </h2>
+
+  <a
+    class="button button-light"
+    href="https://open.spotify.com/artist/0ibmG0fxbpA8wZe8wHjh8V"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Follow on Spotify ↗
+  </a>
+
+</section>
+```
+
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
-    <span>© <span id="year"></span> Jan-Willem Chin</span>
-    <span>Made By JWTJE ENTERTAINMENT</span>
+
+```
+<span>
+  © <span id="year"></span> Jan-Willem Chin
+</span>
+
+<span>
+  Made By JWTJE ENTERTAINMENT
+</span>
+```
+
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // Smooth navigation
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+
+      link.addEventListener("click", function(event) {
+
+        const target = document.querySelector(
+          link.getAttribute("href")
+        );
+
+        if (target) {
+
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+
+      });
+
+    });
+  </script>
+
 </body>
 </html>
