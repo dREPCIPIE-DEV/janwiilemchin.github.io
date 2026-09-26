@@ -485,6 +485,106 @@
       color: #817c72;
     }
 
+
+    /* PHOTO CAROUSEL */
+
+    .photo-carousel {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .photo-slides {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: #ddd8ce;
+    }
+
+    .photo-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.02);
+      transition: opacity 0.45s ease, transform 0.6s ease, visibility 0.45s ease;
+    }
+
+    .photo-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .photo-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .photo-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 50%;
+      background: rgba(29,29,27,.72);
+      color: #f3f0e8;
+      font-size: 1.2rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .photo-arrow:hover {
+      transform: translateY(-50%) scale(1.06);
+      background: rgba(29,29,27,.9);
+    }
+
+    .photo-prev { left: 20px; }
+    .photo-next { right: 20px; }
+
+    .photo-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(29,29,27,.55);
+      backdrop-filter: blur(8px);
+    }
+
+    .photo-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(243,240,232,.5);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .photo-dot.is-active {
+      background: #f3f0e8;
+      transform: scale(1.35);
+    }
+
+    .photo-help {
+      margin: 18px 0 0;
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #817c72;
+    }
+
     /* CTA */
 
     .cta {
@@ -586,6 +686,19 @@
         padding: 18vw 6vw;
       }
 
+
+      .photo-slides {
+        aspect-ratio: 4 / 5;
+      }
+
+      .photo-arrow {
+        width: 42px;
+        height: 42px;
+      }
+
+      .photo-prev { left: 12px; }
+      .photo-next { right: 12px; }
+
       .photo-grid {
         grid-template-columns: 1fr;
       }
@@ -631,7 +744,7 @@
 
   <header class="nav">
 
-```
+
 <a class="wordmark" href="#top">
   Jan-Willem Chin<span>.</span>
 </a>
@@ -650,13 +763,13 @@
     Spotify ↗
   </a>
 </nav>
-```
+
 
   </header>
 
   <main id="top">
 
-```
+
 <!-- HOME -->
 
 <section class="hero">
@@ -921,28 +1034,38 @@
 <section class="section photos" id="photos">
 
   <div class="section-heading">
-
-    <p class="eyebrow">
-      Photos
-    </p>
-
+    <p class="eyebrow">Photos</p>
     <span>Visuals</span>
-
   </div>
 
-
-  <div class="photo-grid">
-
-    <div class="photo-item photo-large">
-
-      <img
-        src="jan-willem.jpg"
-        alt="Jan-Willem Chin in the mountains"
-      >
-
+  <div class="photo-carousel" aria-label="Photo gallery">
+    <div class="photo-slides">
+      <div class="photo-slide is-active">
+        <img src="pr1.jpg" alt="Jan-Willem Chin — photo 1">
+      </div>
+      <div class="photo-slide">
+        <img src="photo2.jpg" alt="Jan-Willem Chin — photo 2">
+      </div>
+      <div class="photo-slide">
+        <img src="photo3.jpg" alt="Jan-Willem Chin — photo 3">
+      </div>
+      <div class="photo-slide">
+        <img src="photo4.jpg" alt="Jan-Willem Chin — photo 4">
+      </div>
     </div>
 
+    <button class="photo-arrow photo-prev" type="button" aria-label="Previous photo">←</button>
+    <button class="photo-arrow photo-next" type="button" aria-label="Next photo">→</button>
+
+    <div class="photo-dots" aria-label="Choose photo">
+      <button class="photo-dot is-active" type="button" aria-label="Photo 1"></button>
+      <button class="photo-dot" type="button" aria-label="Photo 2"></button>
+      <button class="photo-dot" type="button" aria-label="Photo 3"></button>
+      <button class="photo-dot" type="button" aria-label="Photo 4"></button>
+    </div>
   </div>
+
+  <p class="photo-help">Upload photo2.jpg, photo3.jpg, photo4.jpg, etc. to add your photos.</p>
 
 </section>
 
@@ -969,7 +1092,7 @@
   </a>
 
 </section>
-```
+
 
   </main>
 
@@ -977,7 +1100,7 @@
 
   <footer>
 
-```
+
 <span>
   © <span id="year"></span> Jan-Willem Chin
 </span>
@@ -985,7 +1108,7 @@
 <span>
   Made By JWTJE ENTERTAINMENT
 </span>
-```
+
 
   </footer>
 
