@@ -399,6 +399,11 @@
       background: rgba(29,29,27,.9);
     }
 
+    /* Latest release: keep the cover, remove carousel controls */
+    .cover-arrow {
+      display: none;
+    }
+
     .cover-prev { left: 14px; }
     .cover-next { right: 14px; }
 
@@ -1438,6 +1443,50 @@
     // Current year
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
+
+    // Photo gallery
+    (function() {
+      const slides = Array.from(document.querySelectorAll(".photo-slide"));
+      const dots = Array.from(document.querySelectorAll(".photo-dot"));
+      const prev = document.querySelector(".photo-prev");
+      const next = document.querySelector(".photo-next");
+      const gallery = document.querySelector(".photo-carousel");
+
+      if (!slides.length || !prev || !next) return;
+
+      let current = 0;
+
+      function showPhoto(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("is-active", i === current);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("is-active", i === current);
+          dot.setAttribute("aria-current", i === current ? "true" : "false");
+        });
+      }
+
+      prev.addEventListener("click", () => showPhoto(current - 1));
+      next.addEventListener("click", () => showPhoto(current + 1));
+      dots.forEach((dot, i) => dot.addEventListener("click", () => showPhoto(i)));
+
+      // Swipe support for phones
+      let startX = 0;
+      gallery.addEventListener("touchstart", (event) => {
+        startX = event.changedTouches[0].screenX;
+      }, { passive: true });
+
+      gallery.addEventListener("touchend", (event) => {
+        const distance = event.changedTouches[0].screenX - startX;
+        if (Math.abs(distance) > 45) {
+          showPhoto(current + (distance < 0 ? 1 : -1));
+        }
+      }, { passive: true });
+
+      showPhoto(0);
+    })();
 
 
     // Smooth navigation
