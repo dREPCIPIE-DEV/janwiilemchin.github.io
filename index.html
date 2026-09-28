@@ -692,6 +692,259 @@
       color: #817c72;
     }
 
+    /* RESPONSIVE MOBILE POLISH */
+    @media (max-width: 800px) {
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+      }
+
+      .nav {
+        height: 64px;
+        padding: 0 5vw;
+      }
+
+      .wordmark {
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .hero {
+        width: 100%;
+        min-width: 0;
+        padding: 17vw 6vw 16vw;
+        gap: 12vw;
+      }
+
+      .hero-copy,
+      .release-info,
+      .about-copy {
+        min-width: 0;
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: clamp(3.6rem, 18vw, 6.5rem);
+        overflow-wrap: anywhere;
+      }
+
+      .intro {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        gap: 14px;
+      }
+
+      .button {
+        min-height: 46px;
+        padding: 13px 18px;
+      }
+
+      .orbital {
+        width: min(78vw, 360px);
+        height: min(78vw, 360px);
+      }
+
+      .section,
+      .cta {
+        padding-left: 6vw;
+        padding-right: 6vw;
+      }
+
+      .section {
+        padding-top: 16vw;
+        padding-bottom: 16vw;
+      }
+
+      .section-heading {
+        margin-bottom: 30px;
+      }
+
+      .release-card {
+        gap: 11vw;
+      }
+
+      .cover,
+      .cover-carousel {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .cover-arrow,
+      .photo-arrow {
+        width: 42px;
+        height: 42px;
+      }
+
+      .release-info h2,
+      .about-copy h2 {
+        font-size: clamp(2.8rem, 13vw, 5rem);
+        overflow-wrap: anywhere;
+      }
+
+      .release-info > p:not(.release-type) {
+        font-size: 0.95rem;
+      }
+
+      .track {
+        min-height: 64px;
+        grid-template-columns: 42px minmax(0, 1fr) 22px;
+        gap: 8px;
+      }
+
+      .track-name {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        font-size: 0.95rem;
+      }
+
+      .about-copy p {
+        font-size: 1rem;
+      }
+
+      .photo-carousel {
+        width: 100%;
+      }
+
+      .photo-slides {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+      }
+
+      .photo-dots {
+        bottom: 12px;
+      }
+
+      footer {
+        padding: 24px 6vw;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .nav {
+        padding: 0 4vw;
+      }
+
+      nav a:nth-child(2) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 24vw;
+      }
+
+      h1 {
+        font-size: clamp(3.3rem, 18.5vw, 5.5rem);
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button,
+      .hero-actions .text-link {
+        width: 100%;
+      }
+
+      .hero-actions .text-link {
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .orbital {
+        width: 82vw;
+        height: 82vw;
+      }
+
+      .section {
+        padding-top: 18vw;
+        padding-bottom: 18vw;
+      }
+
+      .section-heading {
+        align-items: flex-end;
+      }
+
+      .section-heading > span {
+        font-size: 0.62rem;
+      }
+
+      .release-card {
+        gap: 12vw;
+      }
+
+      .cover-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+      .cover-prev {
+        left: 10px;
+      }
+
+      .cover-next {
+        right: 10px;
+      }
+
+      .photo-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+      .photo-prev {
+        left: 10px;
+      }
+
+      .photo-next {
+        right: 10px;
+      }
+
+      .photo-help {
+        font-size: 0.58rem;
+      }
+
+      .cta {
+        padding-top: 22vw;
+        padding-bottom: 22vw;
+      }
+
+      .cta h2 {
+        font-size: clamp(3.2rem, 16vw, 5.5rem);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .wordmark {
+        font-size: 0.82rem;
+      }
+
+      h1 {
+        font-size: 3.1rem;
+      }
+
+      .release-info h2,
+      .about-copy h2 {
+        font-size: 2.7rem;
+      }
+    }
+
     /* MOBILE */
 
     @media (max-width: 800px) {
