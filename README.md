@@ -1,19 +1,94 @@
-# Jan-Willem Chin — Music Website
+## FOR WHEN ALMBUN1 live
 
-A minimalist, responsive artist website made with plain HTML, CSS and JavaScript.
 
-## Run locally
+<!-- TRACKS -->
 
-Open `index.html` in a browser.
+<section class="section tracks">
 
-## Deploy
+  <div class="section-heading">
 
-Upload all three files (`index.html`, `styles.css`, `script.js`) to any static host such as GitHub Pages, Netlify, Vercel, or your own web server.
+    <p class="eyebrow">
+      Top tracks
+    </p>
 
-## Spotify
+    <span>Listen</span>
 
-The buttons currently use Spotify search links for Jan-Willem Chin because the exact Spotify artist URI/profile URL was not available from the public search results. Replace the search URLs in `index.html` with your exact Spotify artist URL when you have it.
+  </div>
 
-## Current release data
 
-The page highlights **A beginning**, a 4-track release dated September 16, 2026, and includes selected tracks from the artist catalogue.
+  <div class="track-list">
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/1XnMR3c9HmtVsTogJVOPiZ?si=9f47b9cd2e114484"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">01</span>
+      <span class="track-name">Letters</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/6JGePXw7q47DYCRQQWJTOe?si=63df05289d7b4e62"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">02</span>
+      <span class="track-name">Late night walk</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/3hw0dSwuZnbUxKr7R7GwPU?si=4986a3aa1811429b"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">03</span>
+      <span class="track-name">Time for bed</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/6rCtnWfTTVfu1P1p1pvvoV?si=42dde18710e640ba"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">04</span>
+      <span class="track-name">Walking</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/2v3M6aXT3kVJWW4JrKIhUZ?si=ff405b3008b44618"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">05</span>
+      <span class="track-name">Light shines</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+
+    <a
+      class="track"
+      href="https://open.spotify.com/track/3yYFwffXgiDlQtjHU9y0DD?si=1c8fdce166554967"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="track-no">06</span>
+      <span class="track-name">A Beginning</span>
+      <span class="track-arrow">↗</span>
+    </a>
+
+  </div>
+
+</section>
